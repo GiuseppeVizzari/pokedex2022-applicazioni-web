@@ -1,0 +1,32 @@
+.card {
+    margin-bottom: 30px;
+    color: #635959;
+    transition: all .2s;
+}
+
+.image {
+    padding: 20px;
+    max-width: 180px;
+    margin: auto; transition: all .2s;
+}
+
+.title {
+    margin-bottom: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #242424;
+}
+
+.types {
+    margin-top: 20px;
+}
+.card:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.card:hover .image {
+transform: scale(1.4) translateY(-2%);
+}
+
+
