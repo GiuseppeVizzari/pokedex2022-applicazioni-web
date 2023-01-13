@@ -23,7 +23,7 @@ function PokemonTable(props) {
                 </td>
                 <td>{pokemon.name.english}</td>
                 <td>{types}</td>
-                <td><NavLink className={style.action} to={`pokedex/${pokemon.id}`}>Scheda</NavLink></td>
+                <td><NavLink className={style.action} to={`/pokedex/${pokemon.id}`}>Scheda</NavLink></td>
             </tr>
         )
     });
