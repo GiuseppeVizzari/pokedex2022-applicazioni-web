@@ -21,7 +21,7 @@ function App() {
 
             <MainTemplate
                 footerCourseName="Applicazioni Web: Progettazione e Sviluppo"
-                footerCourseLink="https://elearning.unimib.it/course/view.php?id=44672"
+                footerCourseLink="https://elearning.unimib.it/course/view.php?id=51512"
                 navItems={nav}
                 logo={Logo}
             >
