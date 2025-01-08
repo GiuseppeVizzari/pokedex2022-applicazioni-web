@@ -1,7 +1,8 @@
 import React from "react";
 import MainTemplate from "../../components/MainTemplate/MainTemplate";
 import Home from "../Home/Home";
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {HashRouter as Router} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import Pokedex from "../Pokedex/Pokedex";
 import Info from "../Info/Info";
 import PokemonDetail from "../PokemonDetail/PokemonDetail";
@@ -17,7 +18,7 @@ function App() {
 
     return (
 
-        <BrowserRouter>
+        <Router>
 
             <MainTemplate
                 footerCourseName="Applicazioni Web: Progettazione e Sviluppo"
@@ -28,7 +29,6 @@ function App() {
 
                 <Routes>
                     <Route path="/" element={<Home />}/>
-                    <Route path="/pokedex2022-applicazioni-web" element={<Home />}/> // Due to github pages publication in a folder
                     <Route path="/pokedex" element={<Pokedex />}/>
                     <Route path="/info" element={<Info />}/>
                     <Route path="/pokedex/:number" element={<PokemonDetail />}/>
@@ -36,7 +36,7 @@ function App() {
 
             </MainTemplate>
 
-        </BrowserRouter>
+        </Router>
     );
 }
 
