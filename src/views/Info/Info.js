@@ -4,7 +4,7 @@ function Info() {
 
     return (
         <div>
-            Info
+            Info - Pippo
         </div>
     )
 }

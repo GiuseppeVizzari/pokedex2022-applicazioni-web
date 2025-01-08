@@ -32,30 +32,19 @@ const Header = (props) => {
 
     return (
         <div className={style.navBar}>
-
             <Navbar expand="md" light>
                 <div className="container">
-
                     <RouterLink to="/">
                         <img className={style.logo} src={logo} alt=""/>
                     </RouterLink>
-
                     <NavbarToggler onClick={toggle}/>
-
                     <Collapse isOpen={isOpen} navbar>
-
                         <Nav className="mr-auto" navbar>
-
                             {itemList}
-
                         </Nav>
-
                     </Collapse>
-
                 </div>
-
             </Navbar>
-
         </div>
 
     );

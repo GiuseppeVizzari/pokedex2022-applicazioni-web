@@ -11,7 +11,7 @@ function App() {
 
     const nav = [
         {url: "/", text: "Home", exact: true},
-        {url: "/pokedex", text: "Pokédex", exact: false},
+        {url: "/pokedex", text: "Pokédex", exact: true},
         {url: "/info", text: "Info", exact: true}
     ];
 
@@ -28,6 +28,7 @@ function App() {
 
                 <Routes>
                     <Route path="/" element={<Home />}/>
+                    <Route path="/pokedex2022-applicazioni-web" element={<Home />}/> // Due to github pages publication in a folder
                     <Route path="/pokedex" element={<Pokedex />}/>
                     <Route path="/info" element={<Info />}/>
                     <Route path="/pokedex/:number" element={<PokemonDetail />}/>
