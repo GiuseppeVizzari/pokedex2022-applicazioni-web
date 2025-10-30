@@ -8,11 +8,10 @@ function Footer(props) {
     const {courseName, courseLink, navItems} = props;
 
     const itemList = navItems.map((item) => {
+        // removed activeClassName={style.active} from NavLink props
         return (
             <li key={item.url} className="nav-item">
-                <NavLink exact={item.exact}
-                         activeClassName={style.active}
-                         to={item.url}>
+                <NavLink to={item.url}>
                     {item.text}
                 </NavLink>
             </li>

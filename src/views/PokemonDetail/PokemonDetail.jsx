@@ -176,7 +176,7 @@ function PokemonDetail() {
                                 <strong className={style.label}>Abilities</strong>
                                 <ul>
                                     {pokemonData.abilities.map((abilityItem) => {
-                                        return <li>{abilityItem.ability.name}</li>
+                                        return <li key={abilityItem.ability.name}>{abilityItem.ability.name}</li>
                                     })}
                                 </ul>
                             </div>

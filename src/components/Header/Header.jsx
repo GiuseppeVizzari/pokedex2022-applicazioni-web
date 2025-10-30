@@ -17,11 +17,10 @@ const Header = (props) => {
     const toggle = () => setIsOpen(!isOpen);
 
     const itemList = navItems.map((item) => {
+        // Removed activeClassName={style.active} from RouterLink props
         return (
             <NavItem key={item.url} className={style.navItem}>
-                <RouterLink exact={item.exact}
-                            activeClassName={style.active}
-                            to={item.url}
+                <RouterLink to={item.url}
                             className="nav-link">
                     {item.text}
                 </RouterLink>
