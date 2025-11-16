@@ -31,7 +31,7 @@ const Header = (props) => {
     return (
         <div className={style.navBar}>
             <Navbar expand="md" light>
-                <div className="container">
+                <div className={`container ${style.navbarContainer}`}>
                     <RouterLink to="/">
                         <img className={style.logo} src={logo} alt=""/>
                     </RouterLink>

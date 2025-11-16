@@ -7,6 +7,14 @@
     z-index: 9;
 }
 
+/* Rule added because of update to reactstrap 9.x */
+.navbarContainer {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .logo {
     max-width: 50px;
     transition: all .2s;
