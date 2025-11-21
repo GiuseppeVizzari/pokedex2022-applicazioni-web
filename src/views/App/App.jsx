@@ -5,6 +5,7 @@ import {HashRouter as Router} from 'react-router-dom';
 import {Route, Routes} from 'react-router-dom';
 import Pokedex from "../Pokedex/Pokedex";
 import Info from "../Info/Info";
+import NotFound from "./NotFound";
 import PokemonDetail from "../PokemonDetail/PokemonDetail";
 import Logo from "../../assets/images/ball.png";
 
@@ -32,6 +33,7 @@ function App() {
                     <Route path="/pokedex" element={<Pokedex />}/>
                     <Route path="/info" element={<Info />}/>
                     <Route path="/pokedex/:number" element={<PokemonDetail />}/>
+                    <Route path="*" element={<NotFound />}/>
                 </Routes>
 
             </MainTemplate>
