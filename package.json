@@ -1,7 +1,7 @@
 {
   "name": "pokedex2022",
   "homepage": "https://giuseppevizzari.github.io/pokedex2022-applicazioni-web",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",

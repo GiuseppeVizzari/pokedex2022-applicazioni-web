@@ -8,13 +8,19 @@ import {
     zeroPad
 } from "../../utility/utility";
 import PokemonType from "../../components/PokemonType/PokemonType";
-import {NavLink, useParams} from "react-router-dom";
+import {NavLink, useParams, Navigate} from "react-router-dom";
 import style from "./PokemonDetail.module.css";
 
 
 function PokemonDetail() {
 
     let {number} = useParams();
+
+    // Check if number is a valid number
+    if (!/^\d+$/.test(number)) {
+        return <Navigate to="/404" replace />;
+    }
+
     let id = parseInt(number);
 
     const currentPokemon = PokemonListData.filter((pokemon) => pokemon.id === id)[0];
