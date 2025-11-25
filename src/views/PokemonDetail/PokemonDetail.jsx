@@ -25,8 +25,7 @@ function PokemonDetail() {
 
     const currentPokemon = PokemonListData.filter((pokemon) => pokemon.id === id)[0];
 
-    console.log(currentPokemon);
-    // Check if number is a valid number
+    // Check if number is in the list of known pokemons
     if (currentPokemon === undefined) {
         return <Navigate to="/404" replace />;
     }
