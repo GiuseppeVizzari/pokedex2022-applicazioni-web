@@ -6,7 +6,7 @@ import {
     NavbarToggler,
     NavItem
 } from 'reactstrap';
-import {NavLink as RouterLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import style from "./Header.module.css";
 
 const Header = (props) => {
@@ -20,10 +20,10 @@ const Header = (props) => {
         // Removed activeClassName={style.active} from RouterLink props
         return (
             <NavItem key={item.url} className={style.navItem}>
-                <RouterLink to={item.url}
+                <NavLink to={item.url}
                             className="nav-link">
                     {item.text}
-                </RouterLink>
+                </NavLink>
             </NavItem>
         )
     });
@@ -32,9 +32,9 @@ const Header = (props) => {
         <div className={style.navBar}>
             <Navbar expand="md" light>
                 <div className={`container ${style.navbarContainer}`}>
-                    <RouterLink to="/">
+                    <NavLink to="/">
                         <img className={style.logo} src={logo} alt=""/>
-                    </RouterLink>
+                    </NavLink>
                     <NavbarToggler onClick={toggle}/>
                     <Collapse isOpen={isOpen} navbar>
                         <Nav className="mr-auto" navbar>
