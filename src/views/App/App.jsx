@@ -12,9 +12,9 @@ import Logo from "../../assets/images/ball.png";
 function App() {
 
     const nav = [
-        {url: "/", text: "Home", exact: true},
-        {url: "/pokedex", text: "Pokédex", exact: true},
-        {url: "/info", text: "Info", exact: true}
+        {url: "/", text: "Home"},
+        {url: "/pokedex", text: "Pokédex"},
+        {url: "/info", text: "Info"}
     ];
 
     return (
