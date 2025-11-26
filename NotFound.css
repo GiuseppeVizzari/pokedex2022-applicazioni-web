@@ -1,0 +1,19 @@
+.infoPage {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.infoPage h1 {
+    font-size: 2.5rem;
+    color: #dd092f;
+    margin-bottom: 1.5rem;
+}
+
+.infoPage p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1rem;
+}
