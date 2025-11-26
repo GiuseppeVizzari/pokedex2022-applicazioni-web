@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./NotFound.module.css";
-import confused from "./confused-travolta.gif";
+import confused from "../../../public/confused-travolta.gif";
 
 function NotFound() {
 

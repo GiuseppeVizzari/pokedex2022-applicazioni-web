@@ -5,7 +5,7 @@ import {HashRouter as Router} from 'react-router-dom';
 import {Route, Routes} from 'react-router-dom';
 import Pokedex from "../Pokedex/Pokedex";
 import Info from "../Info/Info";
-import NotFound from "./NotFound";
+import NotFound from "../NotFound/NotFound";
 import PokemonDetail from "../PokemonDetail/PokemonDetail";
 import Logo from "../../assets/images/ball.png";
 
@@ -23,7 +23,7 @@ function App() {
 
             <MainTemplate
                 footerCourseName="Applicazioni Web: Progettazione e Sviluppo"
-                footerCourseLink="https://elearning.unimib.it/course/view.php?id=51512"
+                footerCourseLink="https://elearning.unimib.it/course/view.php?id=61231"
                 navItems={nav}
                 logo={Logo}
             >

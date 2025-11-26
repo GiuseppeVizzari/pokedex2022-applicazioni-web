@@ -15,6 +15,17 @@
 </head>
 
 <body>
+<script>
+    (function() {
+        let path = window.location.pathname;
+        let basePath = '/pokedex2022-applicazioni-web/';
+
+        // If we're at a path that's not the base and doesn't have a hash, redirect to base
+        if (path !== basePath && !window.location.hash) {
+            window.location.replace(basePath);
+        }
+    })();
+</script>
 <noscript>
     You need to enable JavaScript to run this app.
 </noscript>

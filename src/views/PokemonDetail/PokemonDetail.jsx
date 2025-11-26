@@ -16,6 +16,8 @@ function PokemonDetail() {
 
     let {number} = useParams();
 
+    console.log("PokemonDetail:", number);
+
     // Check if number is a valid number
     if (!/^\d+$/.test(number)) {
         return <Navigate to="/404" replace />;
