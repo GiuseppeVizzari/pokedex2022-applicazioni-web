@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <title>Pokedex</title>
     <script>
-        var pathSegmentsToKeep = 1;
-        var l = window.location;
+        let pathSegmentsToKeep = 1;
+        let l = window.location;
+        setInterval(1000);
         l.replace(
             l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
             l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/'
