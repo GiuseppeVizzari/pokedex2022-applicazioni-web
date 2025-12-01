@@ -6,10 +6,10 @@
     <script>
         let pathSegmentsToKeep = 1;
         let l = window.location;
-        setInterval(function(){l.replace(
+        l.replace(
             l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
             l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/'
-        );},1000);
+        );
     </script>
 </head>
 <body>
