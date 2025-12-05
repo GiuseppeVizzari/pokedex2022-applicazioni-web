@@ -1,44 +1,44 @@
 import React from "react";
 import MainTemplate from "../../components/MainTemplate/MainTemplate";
 import Home from "../Home/Home";
-import {HashRouter as Router} from 'react-router-dom';
-import {Route, Routes} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Pokedex from "../Pokedex/Pokedex";
 import Info from "../Info/Info";
 import NotFound from "../NotFound/NotFound";
 import PokemonDetail from "../PokemonDetail/PokemonDetail";
+import ProtectedRoute from "../../auth/ProtectedRoute";
 import Logo from "../../assets/images/ball.png";
 
 function App() {
 
     const nav = [
-        {url: "/", text: "Home"},
-        {url: "/pokedex", text: "Pokédex"},
-        {url: "/info", text: "Info"}
+        { url: "/", text: "Home" },
+        { url: "/pokedex", text: "Pokédex" },
+        { url: "/info", text: "Info" }
     ];
 
     return (
+        <MainTemplate
+            footerCourseName="Applicazioni Web: Progettazione e Sviluppo"
+            footerCourseLink="https://elearning.unimib.it/course/view.php?id=61231"
+            navItems={nav}
+            logo={Logo}
+        >
 
-        <Router>
+            <Routes>
+                {/* Public routes */}
+                <Route path="/" element={<Home />} />
+                <Route path="/info" element={<Info />} />
 
-            <MainTemplate
-                footerCourseName="Applicazioni Web: Progettazione e Sviluppo"
-                footerCourseLink="https://elearning.unimib.it/course/view.php?id=61231"
-                navItems={nav}
-                logo={Logo}
-            >
+                {/* Protected routes - require authentication */}
+                <Route path="/pokedex" element={<ProtectedRoute component={Pokedex} />} />
+                <Route path="/pokedex/:number" element={<ProtectedRoute component={PokemonDetail} />} />
 
-                <Routes>
-                    <Route path="/" element={<Home />}/>
-                    <Route path="/pokedex" element={<Pokedex />}/>
-                    <Route path="/info" element={<Info />}/>
-                    <Route path="/pokedex/:number" element={<PokemonDetail />}/>
-                    <Route path="*" element={<NotFound />}/>
-                </Routes>
+                {/* 404 page */}
+                <Route path="*" element={<NotFound />} />
+            </Routes>
 
-            </MainTemplate>
-
-        </Router>
+        </MainTemplate>
     );
 }
 

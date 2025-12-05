@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
     Collapse,
     Nav,
@@ -6,11 +6,14 @@ import {
     NavbarToggler,
     NavItem
 } from 'reactstrap';
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import style from "./Header.module.css";
+import LoginButton from "../LoginButton/LoginButton";
+import LogoutButton from "../LogoutButton/LogoutButton";
+import UserProfile from "../UserProfile/UserProfile";
 
 const Header = (props) => {
-    const {logo, navItems} = props;
+    const { logo, navItems } = props;
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -21,7 +24,7 @@ const Header = (props) => {
         return (
             <NavItem key={item.url} className={style.navItem}>
                 <NavLink to={item.url}
-                            className="nav-link">
+                    className="nav-link">
                     {item.text}
                 </NavLink>
             </NavItem>
@@ -33,12 +36,23 @@ const Header = (props) => {
             <Navbar expand="md" light>
                 <div className={`container ${style.navbarContainer}`}>
                     <NavLink to="/">
-                        <img className={style.logo} src={logo} alt=""/>
+                        <img className={style.logo} src={logo} alt="" />
                     </NavLink>
-                    <NavbarToggler onClick={toggle}/>
+                    <NavbarToggler onClick={toggle} />
                     <Collapse isOpen={isOpen} navbar>
                         <Nav className="mr-auto" navbar>
                             {itemList}
+                        </Nav>
+                        <Nav className="ms-auto d-flex align-items-center" navbar>
+                            <NavItem>
+                                <UserProfile />
+                            </NavItem>
+                            <NavItem>
+                                <LoginButton />
+                            </NavItem>
+                            <NavItem>
+                                <LogoutButton />
+                            </NavItem>
                         </Nav>
                     </Collapse>
                 </div>
