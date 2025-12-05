@@ -1,7 +1,7 @@
 import React from "react";
 import PokemonCardsGrid from "../../components/PokemonCardsGrid/PokemonCardsGrid";
 import PokemonListData from "../../assets/data/pokedex";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 function Home() {
@@ -15,7 +15,7 @@ function Home() {
 
                         <PokemonCardsGrid
                             pokemonList={pokemonFiltered}
-                            col={{xs: 1, sm: 1, md: 3, lg: 3, xl: 3}}
+                            col={{ xs: 1, sm: 1, md: 3, lg: 3, xl: 3 }}
                         />
                         <NavLink className="button" to="/pokedex">Gotta Catch 'em all</NavLink>
                     </div>
