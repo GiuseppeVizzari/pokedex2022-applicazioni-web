@@ -204,12 +204,10 @@ jobs:
       # Step 5: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         env:
-          VITE_AUTH0_DOMAIN: ${{ secrets.VITE_AUTH0_DOMAIN }}
-          VITE_AUTH0_CLIENT_ID: ${{ secrets.VITE_AUTH0_CLIENT_ID }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+          npx gh-pages -d dist -u "github-actions-bot <support+actions@github.com>"
 ```
 
 ### Workflow Breakdown
@@ -321,28 +319,19 @@ const domain = "dev-xyz.auth0.com";
     npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
 ```
 
-**Why environment variables here too?**
+**Why `npx gh-pages` instead of `npm run deploy`?**
 
-Because `npm run deploy` triggers the `predeploy` hook which runs `npm run build` AGAIN:
+We use `npx gh-pages` directly here to avoid a **double build**:
 
-```json
-{
-  "scripts": {
-    "predeploy": "npm run build",  // ← Runs before deploy
-    "deploy": "gh-pages -d dist"
-  }
-}
-```
+1. **Step 4** runs `npm run build` (with env vars) to create the `dist/` folder.
+2. If we ran `npm run deploy`, it would trigger the `predeploy` hook, which runs `npm run build` *again*.
+3. The second build (inside deploy) would fail or produce an empty config if we didn't provide env vars again.
 
-**Without env vars in deploy step:**
-1. First build (Step 4): ✅ Has env vars
-2. Second build (predeploy): ❌ No env vars
-3. Deployed app: ❌ Missing configuration
-
-**With env vars in deploy step:**
-1. First build (Step 4): ✅ Has env vars  
-2. Second build (predeploy): ✅ Has env vars
-3. Deployed app: ✅ Working configuration
+**By using `npx gh-pages -d dist`:**
+- We skip the `predeploy` hook script
+- We deploy the artifacts already built in Step 4
+- We don't need to provide `VITE_` secrets again in this step
+- The process is faster and cleaner
 
 **Git configuration:**
 ```bash
@@ -355,11 +344,11 @@ git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSI
 
 **Deployment command:**
 ```bash
-npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+npx gh-pages -d dist -u "github-actions-bot <support+actions@github.com>"
 ```
 
-- `npm run deploy`: Runs the deploy script
-- `--`: Passes following arguments to the underlying command
+- `npx gh-pages`: Runs the gh-pages tool directly
+- `-d dist`: Deploys the `dist` folder created in the previous step
 - `-u "..."`: Sets git user for the commit
 
 ---
